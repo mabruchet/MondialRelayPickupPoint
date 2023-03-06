@@ -90,7 +90,7 @@ class APIListener implements EventSubscriberInterface
             ->setValid($isValid)
             ->setTitle($deliveryModuleOptionEvent->getModule()->setLocale($locale)->getTitle())
             ->setImage('')
-            ->setMinimumDeliveryDate($minimumDeliveryDate->format('d/m/Y'))
+            ->setMinimumDeliveryDate(($minimumDeliveryDate) ? $minimumDeliveryDate->format('d/m/Y') : null)
             ->setMaximumDeliveryDate(null)
             ->setPostage(($orderPostage) ? $orderPostage->getAmount() : 0)
             ->setPostageTax(($orderPostage) ? $orderPostage->getAmountTax() : 0)
